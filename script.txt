@@ -5,3 +5,8 @@
 4） 核心问题： 陈强能不能死
 5） 结果： 陈强没死去，但明白了活下去更有意义，要为这些女性受害者得到正义，拯救更多女儿。
 6） 主题：这个电影故事告诉我们，虽然身边的亲人已经离去，但女儿还是希望他活着，而不是去天堂
+
+
+if 16 is between column J1 and K1, then L1
+elif 16 is between column M1 and N1, then O1
+elif 16 is between P1 and Q1, then R1
