@@ -1,12 +1,31 @@
-我要写个剧本， 故事梗概如下，帮我写个剧本 
-1） 人物：一个要殉职的警察 陈强
-2） 欲望：陈强的女儿遇难，他怪自己是个失职的父亲，所以他想寻求一死去天堂见女儿
-3） 动作： 陈强经过不同的案子去殉职
-4） 核心问题： 陈强能不能死
-5） 结果： 陈强没死去，但明白了活下去更有意义，要为这些女性受害者得到正义，拯救更多女儿。
-6） 主题：这个电影故事告诉我们，虽然身边的亲人已经离去，但女儿还是希望他活着，而不是去天堂
 
 
 if 16 is between column J1 and K1, then L1
 elif 16 is between column M1 and N1, then O1
 elif 16 is between P1 and Q1, then R1
+
+1） 人物：一个讲正义的姐妹 Cathy
+2） 欲望： Cathy's best friend Yuxuan got homicided，but the killer Yuxuan's husband Liren does not commit in court. she want the truth, she want Yuxan the beautiful lady has a peaceful world at the heaven.
+3） 动作： She gathers evidence and resource from public as well as Yuxuan's mother in order to fight with the plantiff's attorney
+4） 核心问题： external problem, evidence hard to proof it was done with purpose. Cathy's husband is friend of Liren and was trying to stop Cathy's effort. 
+5） 结果： 陈强没死去，但明白了活下去更有意义，要为这些女性受害者得到正义，拯救更多女儿。
+6） 主题
+
+0) 
+1) Before Yuxuan goes on a business trip, she gave instruction to her husban Liren about what to take care while she is away. Things such as available foods in the refridge and taking care of the cat.
+2) Liren reach out to his ex, Shirley, who is excited about a concert she has been hoping to go near West coast which is where Liren resides. Liren immeditately suggest that he can go together.
+3) Yuxuan came back home after the trip and only found his husband drunk. when looking at the pop up message of the text, she realized that he is in contact with his ex again. She gets upset and drag Liren to the living room to interogate. They had a serious argument that night. the next morning Liren apologized and say he wouldn't do it again.
+4) Liren and Yuxuan get alone for a few days. they visited their friend Cathy's house and had a great time
+5) Shirley's birthday come up. and she is leave for New York. She just wanted to say good bye to Liren. Liren kissed Shirley before she got on the Gate. but Shirley text back to Liren saying that they shouldn't do that, that's an mistake, they should not meet again. Date of departure is also Liren's marriage anniversary. Yuxuan expect some surprised from Liren, but ending up knowing that he is meeting Shirley in airport.
+6) Liren and Yuxuan has another serious argument this time. Liren verbally said that he is regret about his marriage. he compares Shirley with Yuxuan. He said that his life would have been better with Shirley.
+7) After argument, Yuxuan called her mother and told her mother that she wants a divorce. she then leave the house and headed to her bestie Cathy's house.
+8) When she come back, Liren started another argument, this time Yuxuan confronted Liren and tell him she wanted a divorce. She tried to get her luggage ready. Liren knowing that Shirley is not accepting his offer to unit, he does not want to lost Yuxuan, he started begging Yuxuan. but Yuxan is so determined that she wanted a divorce this time. Liren lost hope, he has always been successfully in his life, his crash him, he hates Yuxuan, he beat Yuxuan to death
+9) He hide Yuxuan's body in the basement and try to get it transported to an area to bury it.
+10) Just after everything is cleaned up, three police officer visited him, saying that someone reported Yuxuan is missing and may not be safe and just wanted to check
+11) Liren claim that he is also looking for Yuxan the entire day after Yuxan left to Cathy's house last night.
+12) Police find recordings on the Cat feeding machine. shows arguments but not direct evidence of Liren killing Yuxuan. Police charge him and the crime scenes goes on the news delcaring the death of his wife
+13) Yuxuan's mother arrived in USA, Cathy meets with Yuxuan's mom in attorney's office
+14) Cathy's best friend Yuxuan got homicided，but the killer Yuxuan's husband Liren does not commit in court. she want the truth, she want Yuxan the beautiful lady has a peaceful world at the heaven.
+15)  She gathers evidence and resource from public as well as Yuxuan's mother in order to fight with the plantiff's attorney
+16) The problem: evidences available are not enough to proof it was done with purpose. Cathy's husband is friend of Liren and was trying to stop Cathy's effort.
+17) 
