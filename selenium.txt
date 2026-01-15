@@ -1,0 +1,99 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.keys import Keys
+
+
+# Path to Chrome profile (create a dedicated one for Selenium if possible)
+profile_path = r"D:\Users\klin\AppData\Local\Google\Chrome\User Data\SeleniumProfile"
+
+options = webdriver.ChromeOptions()
+options.add_argument(f"--user-data-dir={profile_path}")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument("--start-maximized")
+
+# Selenium Manager will handle ChromeDriver
+driver = webdriver.Chrome(options=options)
+
+# Navigate to Workday page (already logged in via profile)
+driver.get("https://launcher.myapps.microsoft.com/api/signin/d3efb5c1-7261-4a7a-bdc8-68628eb33913?tenantId=0f01c8fb-8564-48cc-9752-0fe038a5c5bc")
+time.sleep(15)
+
+WORKER_PAGE = "https://wd5-impl.workday.com/crossriver/d/inst/autocompletesearch/247$697.htmld#TABTASKID=2998%246445"
+SECURITY_PAGE = "https://wd5.myworkday.com/crossriver/d/inst/247$1774/rel-task/2998$2644.htmld"
+ROLES = [
+    "Business Process Administrator",
+    "Procurement Configurator"
+]
+
+try:
+    # Step 1: Open woker page
+    driver.get(WORKER_PAGE)
+    time.sleep(5)
+
+    wait = WebDriverWait(driver, 30)
+    actions = ActionChains(driver)
+    
+    # Step 2: Find the "Actions" button
+    actions_button = wait.until(EC.presence_of_element_located(
+        (By.XPATH, '//button[contains(.,"Actions")]')
+    ))
+
+    # Step 4: Click Actions
+    actions_button.click()
+
+    #step 5: find sub menu
+    last_item = wait.until(EC.presence_of_element_located(
+    (By.XPATH, '//div[contains(text(),"Security Profile")]')
+))
+
+    driver.execute_script("arguments[0].scrollIntoView(true);", last_item)
+    actions.move_to_element(last_item).perform()
+
+    # Step 6: Wait for the sub-menu item to appear
+    assign_groups = wait.until(EC.element_to_be_clickable(
+        (By.XPATH, '//div[contains(text(),"Assign User-Based Groups")]')
+    ))
+
+    # Step 7: Click it
+    assign_groups.click()
+
+    #step8 : find text User-Based xxxxx in order for the search box to show
+    label = wait.until(EC.presence_of_element_located(
+    (By.XPATH, '//*[contains(text(),"User-Based Groups to Assign")]')
+    ))
+
+    # Step 9, click on the text in order for the search box to show
+    actions.move_to_element(label).click().perform()
+    time.sleep(1)
+
+
+    # Type "procurement" and press ENTER directly
+    actions.send_keys("procurement configurator" + Keys.ENTER).perform()
+    time.sleep(5)
+    
+
+
+    # Target the span specifically by its class and title attributes
+    ok_span_xpath = "//span[@class='WFRM' and @title='OK']"
+    
+    try:
+        # 1. Wait for the span to be present in the DOM
+        ok_element = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, ok_span_xpath))
+        )
+        
+        # 2. Force the click using JavaScript (essential for static bars)
+        driver.execute_script("arguments[0].click();", ok_element)
+        
+    except Exception as e:
+        print(f"Failed to click the OK span: {e}")
+
+    time.sleep(200)
+finally:
+    driver.quit()
