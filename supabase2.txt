@@ -1,0 +1,98 @@
+import os
+from supabase import create_client, Client
+
+
+# --------------------------------------------------
+# Supabase configuration (DO NOT hard-code secrets)
+# --------------------------------------------------
+SUPABASE_URL = "https://mtzsehyiltudrizggrfa.supabase.co"
+SUPABASE_SERVICE_ROLE_KEY ="sb_secret_hc_JEe4MgsjukIJpWwxLZA_K2NR3uCA"
+
+if not SUPABASE_URL or not SUPABASE_SERVICE_ROLE_KEY:
+    raise RuntimeError(
+        "Missing Supabase credentials. "
+        "Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY as environment variables."
+    )
+
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
+
+# --------------------------------------------------
+# User operations
+# Table schema expected:
+# users:
+#   - username (text, primary key)
+#   - name (text)
+#   - email (text)
+#   - password (text, bcrypt hash)
+# --------------------------------------------------
+
+def insert_user(username: str, name: str, email: str, password: str):
+    """
+    Insert a new user into Supabase.
+    Password must already be hashed.
+    """
+    return supabase.table("users").insert({
+        "username": username,
+        "name": name,
+        "email": email,
+        "password": password
+    }).execute()
+
+
+def get_user(username: str):
+    """
+    Fetch a single user by username.
+    Returns a dict or None.
+    """
+    response = (
+        supabase
+        .table("users")
+        .select("username, name, email, password")
+        .eq("username", username)
+        .single()
+        .execute()
+    )
+    return response.data
+
+
+def fetch_all_users():
+    """
+    Fetch all users.
+    Returns a list of dicts:
+    [
+      { "username": "...", "name": "...", "password": "..." }
+    ]
+    """
+    response = (
+        supabase
+        .table("users")
+        .select("username, name, password")
+        .execute()
+    )
+    return response.data or []
+
+
+def update_user(username: str, updates: dict):
+    """
+    Update user fields (name, email, password).
+    """
+    return (
+        supabase
+        .table("users")
+        .update(updates)
+        .eq("username", username)
+        .execute()
+    )
+
+
+def delete_user(username: str):
+    """
+    Delete a user by username.
+    """
+    return (
+        supabase
+        .table("users")
+        .delete()
+        .eq("username", username)
+        .execute()
+    )
