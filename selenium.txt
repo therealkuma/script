@@ -80,7 +80,7 @@ try:
 
 
     # Target the span specifically by its class and title attributes
-    ok_span_xpath = "//span[@class='WFRM' and @title='OK']"
+    ok_span_xpath = "//span[@class='WGRM' and @title='OK']"
     
     try:
         # 1. Wait for the span to be present in the DOM
